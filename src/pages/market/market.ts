@@ -41,7 +41,7 @@ export class Market {
 
   clusters: any[] = [];
   vectoralues = [];
-  cat: string = "vectors";
+  cat: string = "histogram";
   newVectorData: any;
   dimensions: object[];
   gaugeNum: number;

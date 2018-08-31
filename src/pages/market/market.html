@@ -117,7 +117,7 @@
                         <ion-card-header class="cardHeader" text-wrap>Attributes of {{activeCluster.segmentName}}</ion-card-header>
                         <ion-card-content no-padding>
                             <ion-list *ngSwitchCase="'vectors'" class="vector-list" overflow-scroll=”true”>
-                                <ion-item *ngFor=" let dimension of dimensions; let i = index;" text-wrap>
+                                <ion-item color="light" *ngFor=" let dimension of dimensions; let i = index;" text-wrap>
                                     <ion-range disabled="true" min="-10" max="10" step="1" [(ngModel)]="activeCluster['Company Vector Median'][i]" color="lcOrange">
                                         <ion-label class="vector-name" range-left> {{ dimensions[i].description }}</ion-label>
                                     </ion-range>
