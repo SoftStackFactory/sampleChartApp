@@ -1,5 +1,7 @@
 {
-  "name": "sampleChartApp",
+  "name": "",
   "integrations": {},
-  "pro_id": "c3a908c2"
+  "typescript": true,
+  "v2": true,
+  "pro_id": "C3A908C2"
 }
