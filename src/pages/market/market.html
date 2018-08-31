@@ -1,0 +1,170 @@
+<ion-header class="headerHeight">
+    <ion-navbar class="headerHeight" transparent>
+        <button ion-button menuToggle color="dark">
+      <ion-icon style="font-size: 4rem;" name="menu"></ion-icon>
+    </button>
+        <ion-segment>
+            <button id="segment-button" end ion-button outline color="dark" (click)="modelsChange($event)">
+        Clusters In <span id="segment-highlight">  {{selectedModel}}</span>
+        <ion-icon class="segment-icon" ios='md-arrow-dropdown' md="md-arrow-dropdown"></ion-icon>
+      </button>
+        </ion-segment>
+    </ion-navbar>
+</ion-header>
+
+<ion-content overflow-scroll=”true”>
+
+    <ion-grid>
+        <ion-row id="main-market-row">
+            <!--***   Clusters ***-->
+            <ion-col class="clusters-container">
+                <div class="clusters" *ngFor=" let cluster of clusters; let i = index" [ngClass]="{'sCluster': cluster.segmentName === activeCluster.segmentName }" (click)="selectCluster(cluster)">
+                    <h5 class="cluster-names"> {{ cluster.segmentName}} </h5>
+                </div>
+            </ion-col>
+
+
+        </ion-row>
+
+        <ion-row id="content-row">
+            <!--**********  Start Of Column One  **********-->
+
+            <!--********** Example Companies Start **********-->
+            <ion-col class="main-cols" id="left-main-col">
+                <div class="left-col-content market-example-companies">
+
+                    <ion-card id="example-companies-card">
+                        <ion-card-header class="cardHeader">Example Companies</ion-card-header>
+                        <ion-card-content>
+                            <ion-row>
+                                <ion-col col-6 *ngFor="let c of exampleCompanies">{{c}}</ion-col>
+                            </ion-row>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+                <!--********** Example Companies End **********-->
+
+                <!--********** Call To Action Start **********-->
+                <div class="left-col-content market-cta">
+                    <span id="available">{{tappedPopData[0]}}</span>
+                    <span id="your-data">{{tappedPopData[1]}}</span>
+                    <ion-row class="market-cta-row">
+                        <ion-col col-3 class="market-cta-col">
+                            <h4>Available</h4>
+                        </ion-col>
+                        <ion-col col-6 class="market-cta-col">
+                            <bar-chart [ChartType]="doughnut" [VectorData]="tappedPopData" id="market-doughnut"></bar-chart>
+                        </ion-col>
+                        <ion-col col-3 class="market-cta-col">
+                            <h4>Your Data</h4>
+                        </ion-col>
+                        <ion-col col-12><button ion-button (click)="openModal()" id="cta-button">Start A Campign</button></ion-col>
+                    </ion-row>
+                </div>
+                <!--********** Call To Action End **********-->
+
+                <!--********** Firmographics Start **********-->
+                <div class="left-col-content market-firmographics">
+                    <ion-card id="example-companies-card">
+                        <ion-card-header class="cardHeader" text-wrap>Firmographics</ion-card-header>
+                        <ion-card-content>
+                            <ion-list no-lines>
+                                <ion-list-header no-lines>
+                                    Top Industries
+                                </ion-list-header>
+                                <ion-item *ngFor="let f of firmographicList; let i = index">
+                                    {{i + 1}} . {{f}}
+                                </ion-item>
+                                <ion-item>
+                                    <button ion-button clear small (click)="showMore()">See All</button>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-card>
+                    <div class="firmCharts">
+                        <!--    <span class="firmTitle">Employee Count</span> -->
+                        <bar-chart class="firmo-chart" [ChartType]="bar" [DataObject]="employeeBarData" [Number]="odd" [VectorData]="activeCluster['HeadCount Distribution']"></bar-chart>
+                    </div>
+                    <div class="firmCharts">
+                        <!-- <span class="firmTitle">Revenue</span>-->
+                        <bar-chart [ChartType]="bar" [Number]="even" [DataObject]="revenueBarData" [VectorData]="activeCluster['Revenue Distribution']" class="firmo-chart"></bar-chart>
+
+                    </div>
+                </div>
+                <!--********** Firmographics End **********-->
+
+            </ion-col>
+            <!--**********  End Of Column One  **********-->
+
+
+            <!--**********  Start Of Column Two  **********-->
+            <ion-col id="center-main-col" class="main-cols">
+                <div id="round-button-container">
+                    <ion-segment [(ngModel)]="cat">
+                        <ion-segment-button class="round-button" value="vectors">
+                            <ion-icon id="vector-icon" name="options"></ion-icon>
+                        </ion-segment-button>
+                        <ion-segment-button class="round-button" value="histogram">
+                            <ion-icon name="stats"></ion-icon>
+                        </ion-segment-button>
+                    </ion-segment>
+                </div>
+
+                <!--**********   Vector Ranges Sliders   **********-->
+
+                <div [ngSwitch]="cat">
+                    <ion-card class="vectors-card">
+                        <ion-card-header class="cardHeader" text-wrap>Attributes of {{activeCluster.segmentName}}</ion-card-header>
+                        <ion-card-content no-padding>
+                            <ion-list *ngSwitchCase="'vectors'" class="vector-list" overflow-scroll=”true”>
+                                <ion-item *ngFor=" let dimension of dimensions; let i = index;" text-wrap>
+                                    <ion-range disabled="true" min="-10" max="10" step="1" [(ngModel)]="activeCluster['Company Vector Median'][i]" color="lcOrange">
+                                        <ion-label class="vector-name" range-left> {{ dimensions[i].description }}</ion-label>
+                                    </ion-range>
+                                    <ion-label class="low-label"> {{ dimensions[i].lowLabel }} </ion-label>
+                                    <ion-label class="high-label"> {{ dimensions[i].highLabel }} </ion-label>
+                                    <ion-label *ngIf=" activeCluster['Company Vector Median'][i] >= 5 " stacked class="vector-tag">{{ dimensions[i].highValue}} </ion-label>
+                                    <ion-label *ngIf=" activeCluster['Company Vector Median'][i] > -5 && activeCluster['Company Vector Median'][i]< 5" stacked class="vector-tag">{{ dimensions[i].middleValue }} </ion-label>
+                                    <ion-label *ngIf="activeCluster['Company Vector Median'][i]<= -5" stacked class="vector-tag">{{ dimensions[i].lowestValue }} </ion-label>
+                                </ion-item>
+
+                            </ion-list>
+
+                            <!--**********   Vector Histograms  **********-->
+                            <ion-list *ngSwitchCase="'histogram'" overflow-scroll=”true”>
+                                <ion-item class="histogram-item" *ngFor=" let vectordata of activeCluster['Company Vector Histogram']; let i = index;">
+                                    <span id="hist-name">{{ dimensions[i].description }}</span>
+                                    <bar-chart [ChartType]="bar" [Number]=i [VectorData]="vectordata" class="histogram-chart"></bar-chart>
+                                    <span id="hist-lowLabel">{{ dimensions[i].lowLabel }}</span>
+                                    <span id="hist-highLabel">{{ dimensions[i].highLabel }}</span>
+                                </ion-item>
+                            </ion-list>
+
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-col>
+            <!--**********  End Of Column Two  **********-->
+
+            <!--**********  Start Of Column Three  **********-->
+            <ion-col id="right-main-col" class="main-cols market-insights">
+                <ion-card>
+                    <ion-card-header class="cardHeader insights-header">Insights From {{activeCluster.segmentName}}</ion-card-header>
+                    <ion-card-content no-padding>
+                        <ion-list>
+                            <ion-item class="insights-list" *ngFor="let i of insightsList" text-wrap>
+                                <h3 class="sentence">{{i}}</h3>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <!--**********  End Of Column Three  **********-->
+
+
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>

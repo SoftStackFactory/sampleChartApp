@@ -1,14 +1,66 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="lcBlue">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title align="center">LeadCrunch</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content>
+    <ion-grid>
+
+        <ion-row class="mainContainer-row">
+            <!--**********   Discovered Clusters   **********-->
+            <!-- <ion-col >
+                <span class="containerTitle">Discovered Clusters</span> -->
+
+                <!-- <ion-row class="gauges-row"> -->
+
+                    <!--<ion-col *ngFor="let g of gauges | async; let i = index;" class="gauge-col">
+                        <svg [attr.id]="'gauge' + i" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"></svg>
+                    </ion-col>-->
+
+                    <!-- <ion-card>
+                        <ion-col>
+                            <svg id="gauge1" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" (click)="toMarket(0)"></svg>
+                            <h4 id="gaugeLabel1" *ngIf="this.clusters.length < 4" (click)="toMarket(0)">{{this.clusters[0]["segmentName"]}}</h4>
+                            <h4 id="gaugeLabel1-5" *ngIf="this.clusters.length > 3" (click)="toMarket(0)">{{this.clusters[0]["segmentName"]}}</h4>
+                        </ion-col>
+                        <ion-col class="gauge-col">
+                            <svg id="gauge2" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin" (click)="toMarket(1)"></svg>
+                            <h4 id="gaugeLabel2" *ngIf="this.clusters.length < 4" (click)="toMarket(1)">{{this.clusters[1]["segmentName"]}}</h4>
+                            <h4 id="gaugeLabel2-5" *ngIf="this.clusters.length > 3" (click)="toMarket(1)">{{this.clusters[1]["segmentName"]}}</h4>
+                        </ion-col>
+                        <ion-col class="gauge-col">
+                            <svg id="gauge3" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin" (click)="toMarket(2)"></svg>
+                            <h4 id="gaugeLabel3" *ngIf="this.clusters.length < 4" (click)="toMarket(2)">{{this.clusters[2]["segmentName"]}}</h4>
+                            <h4 id="gaugeLabel3-5" *ngIf="this.clusters.length > 3" (click)="toMarket(2)">{{this.clusters[2]["segmentName"]}}</h4>
+                        </ion-col>
+                        <ion-col class="gauge-col">
+                            <svg id="gauge4" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin" (click)="toMarket(3)"></svg>
+                            <h4 id="gaugeLabel4-5" *ngIf="this.clusters.length > 3" (click)="toMarket(3)">{{this.clusters[3]["segmentName"]}}</h4>
+                        </ion-col>
+                        <ion-col class="gauge-col">
+                            <svg id="gauge5" class="gauges-svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin" (click)="toMarket(4)"></svg>
+                            <h4 id="gaugeLabel5-5" *ngIf="this.clusters.length > 3" (click)="toMarket(4)">{{this.clusters[4]["segmentName"]}}</h4>
+                        </ion-col>
+                    </ion-card> -->
+
+
+
+
+                <!-- </ion-row> -->
+            <!-- </ion-col> -->
+            
+            <ion-col>
+                <base-chart-demo></base-chart-demo>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+    <!--********************   Containers End  ********************-->
+
+
 </ion-content>

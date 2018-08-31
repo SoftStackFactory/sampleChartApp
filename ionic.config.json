@@ -1,5 +1,7 @@
 {
-  "name": "test-app",
+  "name": "LeadCrunch",
   "integrations": {},
-  "type": "ionic-angular"
+  "typescript": true,
+  "v2": true,
+  "pro_id": "74122550"
 }

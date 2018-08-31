@@ -1,0 +1,35 @@
+<ion-card class="chart-cards">
+  <ion-card-header style='display: flex'>
+    <ion-icon name='podium'></ion-icon>
+    <h1>Lab Results: LDL</h1>
+  </ion-card-header>
+  <ion-card-content>
+    <div style="display: flex">
+    <ion-item>
+      <small>Most Recent Lab</small>
+      <h2>Feb 2, 2018</h2>
+    </ion-item>
+    <ion-item>
+      <small>Your Result</small>
+      <h2>130 mg/dL</h2>
+    </ion-item>
+    </div>
+    <div class="col-md-6">
+      <canvas id='myChart' #barCanvas>
+                </canvas>
+    </div>
+  </ion-card-content>
+</ion-card>
+<ion-card class="chart-cards">
+  <div class="col-md-6">
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</ion-card>
+<div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+  <button ion-button color= "secondary" (click)="randomizeType()" style="display: inline-block">Toggle</button>
+</div>

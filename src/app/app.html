@@ -1,1 +1,38 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="lcBlue">
+            <ion-title>LeadCrunch</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list no-lines>
+            <ion-list-header>
+                Dashboard
+            </ion-list-header>
+            <ion-item>
+                <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list no-lines>
+            <ion-list-header>
+                <button ion-button clear color="dark" (click)="showDatasets()" icon-right>Dataset
+                  <ion-icon [hidden]="!hideDataset" ios="md-arrow-dropdown" md="md-arrow-dropdown" style="font-size: 20px;"></ion-icon>
+                  <ion-icon [hidden]="hideDataset" ios="ios-remove" md="md-remove" style="font-size: 20px;"></ion-icon>
+                </button>
+            </ion-list-header>
+            <ion-item [hidden]="hideDataset" class="users" *ngFor="let u of users" (click)="selectDataset(u)">
+                {{u.name}}
+                <ion-icon *ngIf="u.name === selectedUser" color="secondary" ios="ios-checkmark" md="md-checkmark" item-right></ion-icon>
+            </ion-item>
+        </ion-list>
+
+
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content main swipeBackEnabled="false"></ion-nav>

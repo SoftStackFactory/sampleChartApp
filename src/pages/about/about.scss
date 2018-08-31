@@ -1,0 +1,15 @@
+.ios, .md {
+  page-about {
+    audio, canvas, progress, video {
+      display: block;
+      margin: auto;
+    }
+    // @media (min-width: 700px) and (orientation: portrait) {
+
+    // }
+    #vid {
+      max-width: 100%;
+      max-height: auto;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<ion-header no-border>
+  <ion-navbar color="lcPurple">
+    <ion-buttons start>
+      <button ion-button clear (click)="dismiss()">
+        <span ion-text color="lcOrange">Cancel</span>
+      </button>
+    </ion-buttons>
+    <ion-title>About</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" id="vid">
+    <source src="{{video}}" type="video/mp4"/>
+  </video>
+
+</ion-content>

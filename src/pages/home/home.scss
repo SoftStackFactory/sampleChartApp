@@ -1,3 +1,342 @@
-page-home {
+.ios,
+.md {
+    page-home {
+        //********************  Segment CSS Start  ********************
+        .segmentContainer {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 10px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .segmentButtons {
+            display: block;
+            background-color: #ededed;
+            border-radius: 0px;
+            margin: 0px;
+            height: 30px;
+            ion-icon {
+                margin-left: 5px;
+            }
+        }
+        .segmentButtons:first-child {
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        .segmentButtons:last-child {
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        //********************  KPI's CSS Start  ********************
+        .kpi-container-row {
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            margin-top: 0.625rem;
+        }
+        .kpi-cards {
+            position: relative;
+            background-color: transparent;
+            box-shadow: none;
+            margin: 0px;
+            width: 100%;
+            ion-card-header {
+                font-size: 1.6rem;
+                border-bottom: 1px solid black;
+                height: 37.5px;
+                padding-bottom: 45px;
+            }
+            ion-card-content {
+                height: 100%;
+            }
+        }
+        .kpi-container-col {
+            flex-direction: row;
+            text-align: center;
+            padding: 0px;
+            margin: 1px;
+            max-width: 126px;
+            min-width: 110px;
+            height: 100px;
+            background-color: #ededed;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .kpi-triangle-red {
+            color: red;
+            font-size: 4rem;
+            justify-content: flex-start;
+        }
+        .kpi-triangle-green {
+            color: green;
+            font-size: 4rem;
+            justify-content: flex-start;
+        }
+        .kpi-main {
+            font-size: 3rem;
+            padding: 0px;
+        }
+        .kpi-change {
+            font-size: 1.6rem;
+            padding: 0px;
+        }
+        // ********************  Main Containers CSS Start  ********************
+        .gauges-row {
+            margin-top: 20px;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #gauge-title {
+            flex-basis: 100%;
+            height: 15px;
+            display: block;
+            flex: 0 0 100%;
+        }
+        .gauges-svg {
+            cursor: pointer;
+            position: relative;
+            width: auto;
+            height: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gauge-col {
+            flex: 0 0 30%;
+            min-width: 70px;
+            height: 50%;
+            // padding-top: 20px;
+            align-self: center;
+            overflow: hidden;
+        }
+        canvas {
+            margin: auto;
+        }
+        #gaugeLabel1 {
+            left: 25%;
+            top: 0%;
+            font-size: 14px;
+            position: absolute;
+            text-indent: 12px;
+            word-spacing: 5px;
+        }
+        #gaugeLabel2 {
+            left: 28%;
+            top: 0%;
+            font-size: 14px;
+            position: absolute;
+        }
+        #gaugeLabel3 {
+            left: 20%;
+            top: 10%;
+            font-size: 14px;
+            position: absolute;
+        }
+        #gaugeLabel1-5 {
+            left: 25%;
+            top: 0%;
+            font-size: 14px;
+            position: absolute;
+            text-indent: 4px;
+            word-spacing: 5px;
+        }
+        #gaugeLabel2-5  {
+            word-spacing: 10px;
+            left: 28%;
+            top: 0%;
+            font-size: 14px;
+            position: absolute;
+        }
+        #gaugeLabel3-5  {
+            left: 20%;
+            top: 10%;
+            font-size: 14px;
+            position: absolute;
+        }
+        #gaugeLabel4-5  {
+            left: 22%;
+            top: 0%;
+            font-size: 14px;
+            position: absolute;
+            text-indent: 8px;
+        }
+        #gaugeLabel5-5  {
+            width: 70px;
+            left: 22%;
+            top: 10%;
+            font-size: 12px;
+            position: absolute;
+        }
+        h4:hover{
+          cursor: pointer;
+        }
+        .mainContainer-row {
+            display: flex;
+            justify-content: center;
+        }
+        .mainContainer-col {
+            position: relative;
+            background-color: #ededed;
+            border: 1px solid black;
+            border-radius: 5px;
+            min-width: 495px;
+            max-width: 495px;
+            height: 240px;
+            margin: 5px;
+            padding: 20px;
+            box-shadow: 1px 1px 3px 0px black;
+            background: linear-gradient(to top, #dbd9d9 0%, transparent 100%);
+            background: -webkit-linear-gradient(to top, #dbd9d9 0%, transparent 100%)
+        }
+        #placeholderImg {
+            // margin-top: 0px !important;
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            position: relative;
+            bottom: 0px;
+            padding-top: 10px;
+        }
+        .containerTitle {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 16px;
+            color: black;
+            border-left: solid 1px map-get($colors, lcOrange);
+            border-top: solid #f8f8f8 5px;
+            border-bottom: solid #f8f8f8 5px;
+            padding-left: 5px;
+        }
+        // ********************  Media Queries  ********************
 
+        // iPad in portrait
+        @media only screen
+        and (min-device-width : 768px)
+        and (max-device-width : 1024px)
+        and (orientation : portrait) {
+          .kpi-container-col {
+            margin-right: 0px;
+          }
+          .kpi-container-row{
+            flex-wrap: nowrap;
+          }
+        }
+
+        // iPhone 6+
+        //  Landscape
+        @media only screen
+        and (min-device-width : 414px)
+        and (max-device-width : 736px)
+        and (orientation : landscape) {
+            .kpi-container-row{
+              flex-wrap: nowrap;
+            }
+            .kpi-container-col{
+              margin: 0px;
+              margin-right: 0px;
+            }
+            .mainContainer-col{
+              max-width: 100%;
+              max-height: auto;
+            }
+            #gaugeLabel1{
+              display: block;
+              left: 34%;
+              word-spacing: 80px;
+            }
+            #gaugeLabel2{
+              display: block;
+              left: 34%;
+              word-spacing: 40px;
+            }
+            #gaugeLabel3{
+              left: 30%;
+            }
+            #gaugeLabel1-5 {
+              display: block;
+              left: 34%;
+              width: 80px;
+            }
+            #gaugeLabel2-5{
+              width: 80px;
+              word-spacing: 10px;
+              left: 36%;
+            }
+            #gaugeLabel3-5{
+              display: block;
+              display: block;
+              left: 30%;
+              width: 80px;
+            }
+            #gaugeLabel4-5{
+                width: 80px;
+                display: block;
+                left: 32%;
+            }
+            #gaugeLabel5-5{
+              display: block;
+              left: 30%;
+            }
+          }
+
+        //  Portrait
+        @media only screen
+        and (min-device-width : 414px)
+        and (max-device-width : 736px)
+        and (orientation : portrait) {
+            .mainContainer-col{
+              min-width: 100%;
+            }
+          }
+
+        // IPHONE 6 MEDIA QUERIES
+
+        //  Landscape
+        @media only screen
+        and (min-device-width : 375px)
+        and (max-device-width : 667px)
+        and (orientation : landscape) {
+            .kpi-container-row{
+              flex-wrap: nowrap;
+            }
+            .kpi-container-col{
+              margin: 0px;
+              margin-right: 0px;
+            }
+        }
+
+        //  Portrait
+        @media only screen
+        and (min-device-width : 375px)
+        and (max-device-width : 667px)
+        and (orientation : portrait) {
+            .mainContainer-col{
+              min-width: 100%;
+            }
+        }
+
+        // IPHONE 5/5s MEDIA QUERIES
+
+        //  Portrait
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 568px)
+        and (orientation : portrait) {
+            .mainContainer-col{
+              min-width: 100%;
+            }
+        }
+
+
+
+    }
 }
