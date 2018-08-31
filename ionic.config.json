@@ -1,7 +1,6 @@
 {
-  "name": "",
+  "name": "test-app",
   "integrations": {},
-  "typescript": true,
-  "v2": true,
+  "type": "ionic-angular",
   "pro_id": "C3A908C2"
 }
