@@ -59,6 +59,9 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {}
     },
-    "platforms": []
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

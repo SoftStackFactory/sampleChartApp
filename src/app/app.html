@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
     <ion-header>
-        <ion-toolbar color="lcBlue">
-            <ion-title>LeadCrunch</ion-title>
+        <ion-toolbar color="primary">
+            <ion-title style='padding: 0 80px 1px'>Softstack Factory</ion-title>
         </ion-toolbar>
     </ion-header>
 
@@ -14,8 +14,7 @@
                 <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
             </ion-item>
         </ion-list>
-
-
+        
         <ion-list no-lines>
             <ion-list-header>
                 <button ion-button clear color="dark" (click)="showDatasets()" icon-right>Dataset
